@@ -7825,26 +7825,6 @@
                         "Player",
                         "w"
                       ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "a"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "d"
-                      ]
                     }
                   ],
                   "actions": [
@@ -7864,6 +7844,58 @@
                       "parameters": [
                         "Player",
                         "\"Up\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "",
+                            "a"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateLeftKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "",
+                            "d"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateRightKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        }
                       ]
                     }
                   ]
@@ -7900,6 +7932,58 @@
                         "\"Down\""
                       ]
                     }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "",
+                            "a"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateLeftKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "",
+                            "d"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateRightKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 },
                 {
@@ -7912,6 +7996,26 @@
                       "parameters": [
                         "Player",
                         "d"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "w"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "s"
                       ]
                     }
                   ],
@@ -7934,42 +8038,6 @@
                         "\"Right\""
                       ]
                     }
-                  ],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "KeyPressed"
-                          },
-                          "parameters": [
-                            "w",
-                            "w"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "TopDownMovementBehavior::SimulateUpKey"
-                          },
-                          "parameters": [
-                            "Player",
-                            "TopDownMovement"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "Player",
-                            "\"Up\""
-                          ]
-                        }
-                      ]
-                    }
                   ]
                 },
                 {
@@ -7982,6 +8050,26 @@
                       "parameters": [
                         "Player",
                         "a"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "w"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "s"
                       ]
                     }
                   ],
