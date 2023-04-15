@@ -2283,6 +2283,40 @@
       "variables": [],
       "effects": [],
       "behaviors": []
+    },
+    {
+      "assetStoreId": "",
+      "bottomMargin": 16,
+      "height": 48,
+      "leftMargin": 16,
+      "name": "Console",
+      "rightMargin": 16,
+      "tags": "",
+      "texture": "Border.png",
+      "tiled": true,
+      "topMargin": 16,
+      "type": "PanelSpriteObject::PanelSprite",
+      "width": 48,
+      "variables": [],
+      "effects": [],
+      "behaviors": []
+    },
+    {
+      "assetStoreId": "",
+      "bottomMargin": 16,
+      "height": 48,
+      "leftMargin": 16,
+      "name": "CodeButtonField",
+      "rightMargin": 16,
+      "tags": "",
+      "texture": "Border.png",
+      "tiled": true,
+      "topMargin": 16,
+      "type": "PanelSpriteObject::PanelSprite",
+      "width": 48,
+      "variables": [],
+      "effects": [],
+      "behaviors": []
     }
   ],
   "objectsGroups": [],
@@ -2331,7 +2365,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.2,
         "snap": false,
-        "zoomFactor": 2.704529529007083,
+        "zoomFactor": 2.4484010373203153,
         "windowMask": false
       },
       "objectsGroups": [
@@ -8615,7 +8649,7 @@
       "title": "",
       "v": 146,
       "uiSettings": {
-        "grid": false,
+        "grid": true,
         "gridType": "rectangular",
         "gridWidth": 32,
         "gridHeight": 32,
@@ -8623,19 +8657,19 @@
         "gridOffsetY": 0,
         "gridColor": 10401023,
         "gridAlpha": 0.2,
-        "snap": false,
-        "zoomFactor": 0.9199999999999938,
-        "windowMask": false
+        "snap": true,
+        "zoomFactor": 0.8899892681114087,
+        "windowMask": true
       },
       "objectsGroups": [
         {
           "name": "Button",
           "objects": [
             {
-              "name": "Attack1"
+              "name": "Code"
             },
             {
-              "name": "Attack2"
+              "name": "Attack"
             },
             {
               "name": "Run"
@@ -8643,7 +8677,20 @@
           ]
         }
       ],
-      "variables": [],
+      "variables": [
+        {
+          "folded": true,
+          "name": "answerJSON",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "folded": true,
+          "name": "answer",
+          "type": "structure",
+          "children": []
+        }
+      ],
       "instances": [
         {
           "angle": 0,
@@ -8693,13 +8740,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 160,
-          "layer": "Dialogue",
+          "height": 546,
+          "layer": "Task",
           "name": "TextBorder",
           "persistentUuid": "3eda7dbd-af4a-4a6f-a7d9-d9e294bbc3aa",
-          "width": 896,
-          "x": 32,
-          "y": 352,
+          "width": 960,
+          "x": 0,
+          "y": 0,
           "zOrder": 4,
           "numberProperties": [],
           "stringProperties": [],
@@ -8709,12 +8756,12 @@
           "angle": 0,
           "customSize": true,
           "height": 32,
-          "layer": "Dialogue",
-          "name": "Attack1",
+          "layer": "Task",
+          "name": "Code",
           "persistentUuid": "7dc38f8a-b2d4-4716-96cc-cfda55183779",
           "width": 128,
-          "x": 80,
-          "y": 368,
+          "x": 800,
+          "y": 32,
           "zOrder": 7,
           "numberProperties": [],
           "stringProperties": [],
@@ -8724,12 +8771,12 @@
           "angle": 0,
           "customSize": true,
           "height": 32,
-          "layer": "Dialogue",
-          "name": "Attack2",
+          "layer": "Code",
+          "name": "Attack",
           "persistentUuid": "be19237c-cdfd-46d6-9f03-ac226e9a3f61",
           "width": 128,
-          "x": 80,
-          "y": 416,
+          "x": 800,
+          "y": 64,
           "zOrder": 8,
           "numberProperties": [],
           "stringProperties": [],
@@ -8739,12 +8786,12 @@
           "angle": 0,
           "customSize": true,
           "height": 32,
-          "layer": "Dialogue",
+          "layer": "Task",
           "name": "Run",
           "persistentUuid": "d0d0038e-afed-4b66-afad-9eb83d409837",
           "width": 128,
-          "x": 80,
-          "y": 464,
+          "x": 800,
+          "y": 96,
           "zOrder": 9,
           "numberProperties": [],
           "stringProperties": [],
@@ -8753,13 +8800,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 128,
-          "layer": "Dialogue",
+          "height": 480,
+          "layer": "Task",
           "name": "Dialogue",
           "persistentUuid": "1d6dd4c3-a14e-4637-b8ba-6dad23785fdd",
-          "width": 624,
-          "x": 256,
-          "y": 368,
+          "width": 736,
+          "x": 32,
+          "y": 32,
           "zOrder": 10,
           "numberProperties": [],
           "stringProperties": [],
@@ -8821,6 +8868,126 @@
           "x": 610,
           "y": 275,
           "zOrder": 13,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 544,
+          "layer": "Console",
+          "name": "Console",
+          "persistentUuid": "c2624690-f7ba-4a20-b811-c13a62dc2f57",
+          "width": 960,
+          "x": 0,
+          "y": 0,
+          "zOrder": 14,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 32,
+          "layer": "Console",
+          "name": "Back",
+          "persistentUuid": "9dca0c15-4bd4-4401-bccf-ef9562f8be67",
+          "width": 96,
+          "x": 32,
+          "y": 32,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "Console",
+          "name": "ConsoleTXT",
+          "persistentUuid": "b0ae9ed8-db75-41ee-b069-b4ab43b2e276",
+          "width": 0,
+          "x": 352,
+          "y": 0,
+          "zOrder": 17,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 442,
+          "layer": "Console",
+          "name": "NewBBText",
+          "persistentUuid": "d44cced0-c0cb-47a4-8380-2f200410d7b6",
+          "width": 948,
+          "x": 0,
+          "y": 96,
+          "zOrder": 18,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 545,
+          "layer": "Code",
+          "name": "CodeInput",
+          "persistentUuid": "0eeabdc4-ce37-4f21-b9ac-1b8b3f644d57",
+          "width": 767,
+          "x": 0,
+          "y": 0,
+          "zOrder": 20,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 32,
+          "layer": "Code",
+          "name": "ConsoleBT",
+          "persistentUuid": "45205199-74a1-44c2-9489-084961289025",
+          "width": 128,
+          "x": 800,
+          "y": 128,
+          "zOrder": 21,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 32,
+          "layer": "Code",
+          "name": "BackToTask",
+          "persistentUuid": "50ea9999-5283-40d7-8827-8011e9991a74",
+          "width": 128,
+          "x": 800,
+          "y": 192,
+          "zOrder": 22,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 544,
+          "layer": "Code",
+          "name": "CodeButtonField",
+          "persistentUuid": "2f42f1a9-54d2-40ca-942c-adeff3dec4c3",
+          "width": 192,
+          "x": 768,
+          "y": 0,
+          "zOrder": 7,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -9156,7 +9323,7 @@
           "content": {
             "text": "The battle begins.",
             "opacity": 255,
-            "scale": 2,
+            "scale": 1,
             "fontSize": 20,
             "tint": "255;255;255",
             "bitmapFontResourceName": "8BitOperatorPlus8Regular_Edited.fnt",
@@ -9291,7 +9458,72 @@
         },
         {
           "assetStoreId": "90d94b6e3a23c34948e59eaaef4679740f8ab588696d59b21e0c0c2ef106b94d",
-          "name": "Attack1",
+          "name": "Code",
+          "tags": "",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 8,
+            "RightPadding": 8,
+            "PressedLabelOffsetY": 0,
+            "IdleLabelOffsetY": -8,
+            "BottomPadding": 8,
+            "TopPadding": 8,
+            "MinimalWidth": 300
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border2.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            },
+            "Idle": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Code",
+              "font": "",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border2.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            }
+          }
+        },
+        {
+          "assetStoreId": "90d94b6e3a23c34948e59eaaef4679740f8ab588696d59b21e0c0c2ef106b94d",
+          "name": "Attack",
           "tags": "",
           "type": "PanelSpriteButton::PanelSpriteButton",
           "variables": [],
@@ -9334,7 +9566,7 @@
               "underlined": false,
               "string": "Attack",
               "font": "",
-              "textAlignment": "left",
+              "textAlignment": "center",
               "characterSize": 20,
               "color": {
                 "b": 255,
@@ -9356,7 +9588,7 @@
         },
         {
           "assetStoreId": "90d94b6e3a23c34948e59eaaef4679740f8ab588696d59b21e0c0c2ef106b94d",
-          "name": "Attack2",
+          "name": "ConsoleBT",
           "tags": "",
           "type": "PanelSpriteButton::PanelSpriteButton",
           "variables": [],
@@ -9397,9 +9629,139 @@
               "italic": false,
               "smoothed": true,
               "underlined": false,
-              "string": "Skill",
+              "string": "Console",
               "font": "",
-              "textAlignment": "left",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border2.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            }
+          }
+        },
+        {
+          "assetStoreId": "90d94b6e3a23c34948e59eaaef4679740f8ab588696d59b21e0c0c2ef106b94d",
+          "name": "Back",
+          "tags": "",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 8,
+            "RightPadding": 8,
+            "PressedLabelOffsetY": 0,
+            "IdleLabelOffsetY": -8,
+            "BottomPadding": 8,
+            "TopPadding": 8,
+            "MinimalWidth": 300
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border2.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            },
+            "Idle": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Back",
+              "font": "",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border2.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            }
+          }
+        },
+        {
+          "assetStoreId": "90d94b6e3a23c34948e59eaaef4679740f8ab588696d59b21e0c0c2ef106b94d",
+          "name": "BackToTask",
+          "tags": "",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 8,
+            "RightPadding": 8,
+            "PressedLabelOffsetY": 0,
+            "IdleLabelOffsetY": -8,
+            "BottomPadding": 8,
+            "TopPadding": 8,
+            "MinimalWidth": 300
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border2.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            },
+            "Idle": {
+              "bottomMargin": 8,
+              "height": 106,
+              "leftMargin": 8,
+              "rightMargin": 8,
+              "texture": "Border.png",
+              "tiled": true,
+              "topMargin": 8,
+              "width": 256
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Back",
+              "font": "",
+              "textAlignment": "center",
               "characterSize": 20,
               "color": {
                 "b": 255,
@@ -9464,7 +9826,7 @@
               "underlined": false,
               "string": "Run",
               "font": "",
-              "textAlignment": "left",
+              "textAlignment": "center",
               "characterSize": 20,
               "color": {
                 "b": 255,
@@ -9538,6 +9900,68 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "ConsoleTXT",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "[b]Console[/b] ",
+            "opacity": 255,
+            "fontSize": 54,
+            "visible": true,
+            "color": "255;255;255",
+            "fontFamily": "Arial",
+            "align": "left",
+            "wordWrap": true
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "NewBBText",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "[shadow=red]Answer[/shadow] ",
+            "opacity": 255,
+            "fontSize": 20,
+            "visible": true,
+            "color": "255;255;255",
+            "fontFamily": "Arial",
+            "align": "left",
+            "wordWrap": true
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "CodeInput",
+          "tags": "",
+          "type": "TextInput::TextInputObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "initialValue": "",
+            "placeholder": "Touch to start typing",
+            "fontResourceName": "",
+            "fontSize": 20,
+            "inputType": "text area",
+            "textColor": "255;255;255",
+            "fillColor": "74;74;74",
+            "fillOpacity": 200,
+            "borderColor": "0;0;0",
+            "borderOpacity": 255,
+            "borderWidth": 1,
+            "readOnly": false,
+            "disabled": false
+          }
         }
       ],
       "events": [
@@ -9567,6 +9991,34 @@
                 "\"Backward\"",
                 "255",
                 ""
+              ]
+            },
+            {
+              "type": {
+                "value": "HideLayer"
+              },
+              "parameters": [
+                "",
+                "\"Code\""
+              ]
+            },
+            {
+              "type": {
+                "value": "HideLayer"
+              },
+              "parameters": [
+                "",
+                "\"Console\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PanelSpriteObject::SetOpacity"
+              },
+              "parameters": [
+                "TextBorder",
+                "=",
+                "200"
               ]
             },
             {
@@ -9690,40 +10142,6 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "PanelSpriteButton::PanelSpriteButton::IsHovered"
-                  },
-                  "parameters": [
-                    "Button",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "PlaySound"
-                  },
-                  "parameters": [
-                    "",
-                    "HoverSound.wav",
-                    "",
-                    "20",
-                    "RandomFloatInRange(0.8,0.9)"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
                     "value": "VarSceneTxt"
                   },
                   "parameters": [
@@ -9743,12 +10161,162 @@
                         "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
                       },
                       "parameters": [
-                        "Attack1",
+                        "Code",
                         ""
                       ]
                     }
                   ],
                   "actions": [
+                    {
+                      "type": {
+                        "value": "HideLayer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Task\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ShowLayer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Code\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                      },
+                      "parameters": [
+                        "ConsoleBT",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "HideLayer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Code\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ShowLayer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Console\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                      },
+                      "parameters": [
+                        "Back",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "HideLayer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Console\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ShowLayer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Code\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                      },
+                      "parameters": [
+                        "BackToTask",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "HideLayer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Code\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ShowLayer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Task\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                      },
+                      "parameters": [
+                        "Attack",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "await": true,
+                        "value": "SendAsyncRequest"
+                      },
+                      "parameters": [
+                        "\"http://127.0.0.1:12347/rightAnswer\"",
+                        "\"\"",
+                        "\"POST\"",
+                        "",
+                        "answerJSON",
+                        ""
+                      ]
+                    },
                     {
                       "type": {
                         "value": "ModVarSceneTxt"
@@ -9757,6 +10325,41 @@
                         "State",
                         "=",
                         "\"PlayPlayerAttack\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "JSONToVariableStructure"
+                      },
+                      "parameters": [
+                        "VariableString(answerJSON)",
+                        "answer"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                      },
+                      "parameters": [
+                        "Run",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Scene"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Overworld\"",
+                        "yes"
                       ]
                     }
                   ]
@@ -9784,163 +10387,220 @@
                   "conditions": [
                     {
                       "type": {
-                        "value": "BuiltinCommonInstructions::Once"
+                        "value": "SceneVariableAsBoolean"
                       },
-                      "parameters": []
+                      "parameters": [
+                        "answer.status",
+                        "True"
+                      ]
                     }
                   ],
-                  "actions": [
+                  "actions": [],
+                  "events": [
                     {
-                      "type": {
-                        "value": "Tween::AddObjectPositionTween"
-                      },
-                      "parameters": [
-                        "Player",
-                        "Tween",
-                        "\"BackUp\"",
-                        "Player.X() - 50",
-                        "Player.Y()",
-                        "\"easeOutQuad\"",
-                        "500",
-                        ""
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Tween::AddObjectPositionTween"
+                          },
+                          "parameters": [
+                            "Player",
+                            "Tween",
+                            "\"BackUp\"",
+                            "Player.X() - 50",
+                            "Player.Y()",
+                            "\"easeOutQuad\"",
+                            "500",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "0.5"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Tween::AddObjectPositionTween"
+                          },
+                          "parameters": [
+                            "Player",
+                            "Tween",
+                            "\"BackUp\"",
+                            "Player.X() + 50",
+                            "Player.Y()",
+                            "\"easeInQuad\"",
+                            "100",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "0.1"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "PlaySound"
+                          },
+                          "parameters": [
+                            "",
+                            "Attack.wav",
+                            "",
+                            "90",
+                            "RandomFloatInRange(0.9,1)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ShakeObject::ShakeObject_PositionAngle::StopShaking"
+                          },
+                          "parameters": [
+                            "Enemy",
+                            "ShakeObject_PositionAngle",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ShakeObject::ShakeObject_PositionAngleScale::ShakeObject_PositionAngleScale"
+                          },
+                          "parameters": [
+                            "Enemy",
+                            "ShakeObject_PositionAngleScale",
+                            "0.6",
+                            "5",
+                            "5",
+                            "5",
+                            "10",
+                            "0.2",
+                            "",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Flash::Flash::Flash"
+                          },
+                          "parameters": [
+                            "Enemy",
+                            "Flash",
+                            "0.3",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Health::Health::Hit"
+                          },
+                          "parameters": [
+                            "Enemy",
+                            "Health",
+                            "10",
+                            "",
+                            "",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BitmapText::BitmapTextObject::SetText"
+                          },
+                          "parameters": [
+                            "Dialogue",
+                            "=",
+                            "\"You attacked your enemy.\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "1"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ShakeObject::ShakeObject_PositionAngle::ShakeObject_PositionAngle"
+                          },
+                          "parameters": [
+                            "Enemy",
+                            "ShakeObject_PositionAngle",
+                            "",
+                            "-2",
+                            "-2",
+                            "0",
+                            "2",
+                            "yes",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "State",
+                            "=",
+                            "\"WaitPlayerChoice\""
+                          ]
+                        }
                       ]
-                    },
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
                     {
                       "type": {
-                        "value": "Wait"
+                        "value": "SceneVariableAsBoolean"
                       },
                       "parameters": [
-                        "0.5"
+                        "answer.status",
+                        "False"
                       ]
-                    },
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
                     {
-                      "type": {
-                        "value": "Tween::AddObjectPositionTween"
-                      },
-                      "parameters": [
-                        "Player",
-                        "Tween",
-                        "\"BackUp\"",
-                        "Player.X() + 50",
-                        "Player.Y()",
-                        "\"easeInQuad\"",
-                        "100",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Wait"
-                      },
-                      "parameters": [
-                        "0.1"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "PlaySound"
-                      },
-                      "parameters": [
-                        "",
-                        "Attack.wav",
-                        "",
-                        "90",
-                        "RandomFloatInRange(0.9,1)"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ShakeObject::ShakeObject_PositionAngle::StopShaking"
-                      },
-                      "parameters": [
-                        "Enemy",
-                        "ShakeObject_PositionAngle",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ShakeObject::ShakeObject_PositionAngleScale::ShakeObject_PositionAngleScale"
-                      },
-                      "parameters": [
-                        "Enemy",
-                        "ShakeObject_PositionAngleScale",
-                        "0.6",
-                        "5",
-                        "5",
-                        "5",
-                        "10",
-                        "0.2",
-                        "",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Flash::Flash::Flash"
-                      },
-                      "parameters": [
-                        "Enemy",
-                        "Flash",
-                        "0.3",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Health::Health::Hit"
-                      },
-                      "parameters": [
-                        "Enemy",
-                        "Health",
-                        "10",
-                        "",
-                        "",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "BitmapText::BitmapTextObject::SetText"
-                      },
-                      "parameters": [
-                        "Dialogue",
-                        "=",
-                        "\"You attacked your enemy.\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Wait"
-                      },
-                      "parameters": [
-                        "1"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ShakeObject::ShakeObject_PositionAngle::ShakeObject_PositionAngle"
-                      },
-                      "parameters": [
-                        "Enemy",
-                        "ShakeObject_PositionAngle",
-                        "",
-                        "-2",
-                        "-2",
-                        "0",
-                        "2",
-                        "yes",
-                        "yes"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ModVarSceneTxt"
-                      },
-                      "parameters": [
-                        "State",
-                        "=",
-                        "\"WaitEnemyChoice\""
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "State",
+                            "=",
+                            "\"WaitEnemyChoice\""
+                          ]
+                        }
                       ]
                     }
                   ]
@@ -10281,7 +10941,7 @@
           "ambientLightColorR": 21777048,
           "followBaseLayerCamera": false,
           "isLightingLayer": false,
-          "name": "Dialogue",
+          "name": "Task",
           "visibility": true,
           "cameras": [],
           "effects": []
@@ -10293,6 +10953,28 @@
           "followBaseLayerCamera": false,
           "isLightingLayer": false,
           "name": "UI",
+          "visibility": true,
+          "cameras": [],
+          "effects": []
+        },
+        {
+          "ambientLightColorB": 150995058,
+          "ambientLightColorG": 1635152995,
+          "ambientLightColorR": 1701470831,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "Code",
+          "visibility": true,
+          "cameras": [],
+          "effects": []
+        },
+        {
+          "ambientLightColorB": 150995058,
+          "ambientLightColorG": 6068864,
+          "ambientLightColorR": 13798416,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "Console",
           "visibility": true,
           "cameras": [],
           "effects": []
