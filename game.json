@@ -2265,7 +2265,8 @@
         "r": 0
       },
       "absoluteCoordinates": false,
-      "clearBetweenFrames": true
+      "clearBetweenFrames": true,
+      "antialiasing": "none"
     },
     {
       "assetStoreId": "",
@@ -7825,6 +7826,26 @@
                         "Player",
                         "w"
                       ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "a"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "d"
+                      ]
                     }
                   ],
                   "actions": [
@@ -7844,58 +7865,6 @@
                       "parameters": [
                         "Player",
                         "\"Up\""
-                      ]
-                    }
-                  ],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "KeyPressed"
-                          },
-                          "parameters": [
-                            "",
-                            "a"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "TopDownMovementBehavior::SimulateLeftKey"
-                          },
-                          "parameters": [
-                            "Player",
-                            "TopDownMovement"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "KeyPressed"
-                          },
-                          "parameters": [
-                            "",
-                            "d"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "TopDownMovementBehavior::SimulateRightKey"
-                          },
-                          "parameters": [
-                            "Player",
-                            "TopDownMovement"
-                          ]
-                        }
                       ]
                     }
                   ]
@@ -7932,58 +7901,6 @@
                         "\"Down\""
                       ]
                     }
-                  ],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "KeyPressed"
-                          },
-                          "parameters": [
-                            "",
-                            "a"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "TopDownMovementBehavior::SimulateLeftKey"
-                          },
-                          "parameters": [
-                            "Player",
-                            "TopDownMovement"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "KeyPressed"
-                          },
-                          "parameters": [
-                            "",
-                            "d"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "TopDownMovementBehavior::SimulateRightKey"
-                          },
-                          "parameters": [
-                            "Player",
-                            "TopDownMovement"
-                          ]
-                        }
-                      ]
-                    }
                   ]
                 },
                 {
@@ -7996,26 +7913,6 @@
                       "parameters": [
                         "Player",
                         "d"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "w"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "s"
                       ]
                     }
                   ],
@@ -8038,6 +7935,42 @@
                         "\"Right\""
                       ]
                     }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "w",
+                            "w"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateUpKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetAnimationName"
+                          },
+                          "parameters": [
+                            "Player",
+                            "\"Up\""
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 },
                 {
@@ -8050,26 +7983,6 @@
                       "parameters": [
                         "Player",
                         "a"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "w"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "s"
                       ]
                     }
                   ],
@@ -10512,7 +10425,7 @@
             "placeholder": "Email",
             "fontResourceName": "",
             "fontSize": 16,
-            "inputType": "email",
+            "inputType": "text",
             "textColor": "255;255;255",
             "fillColor": "15;10;30",
             "fillOpacity": 255,
@@ -10791,45 +10704,16 @@
             },
             {
               "type": {
+                "await": true,
                 "value": "SendAsyncRequest"
               },
               "parameters": [
-                "\"http://127.0.0.1:5001/login\"",
-                "\"{\\\"username\\\": \\\"GlobalVarToJSON(username)\\\", \\\"password\\\": \\\"GlobalVarToJSON(password)\\\"}\"",
+                "\"http://127.0.0.1:8000/api/v1/auth/create-token/\"",
+                "\"{\\\"username\\\": \\\"\" + email_input.Text() + \"\\\", \\\"password\\\": \\\"\" + password_input.Text() + \"\\\"}\"",
                 "\"POST\"",
                 "\"application/json\"",
                 "loginResponse",
                 "loginResponseError"
-              ]
-            },
-            {
-              "type": {
-                "value": "DebuggerTools::ConsoleLog"
-              },
-              "parameters": [
-                "VariableString(loginResponse)",
-                "",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "DebuggerTools::ConsoleLog"
-              },
-              "parameters": [
-                "VariableString(loginResponseError)",
-                "",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "Scene"
-              },
-              "parameters": [
-                "",
-                "\"Overworld\"",
-                ""
               ]
             }
           ],
@@ -10842,13 +10726,23 @@
                     "value": "VarSceneTxt"
                   },
                   "parameters": [
-                    "loginResponse",
+                    "loginResponseError",
                     "=",
-                    "\"200\""
+                    "\"0\""
                   ]
                 }
               ],
               "actions": [
+                {
+                  "type": {
+                    "value": "DebuggerTools::ConsoleLog"
+                  },
+                  "parameters": [
+                    "\"You logged in\"",
+                    "\"Overworld\"",
+                    ""
+                  ]
+                },
                 {
                   "type": {
                     "value": "Scene"
@@ -10856,17 +10750,54 @@
                   "parameters": [
                     "",
                     "\"Overworld\"",
-                    ""
+                    "yes"
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "loginResponseError",
+                    "!=",
+                    "\"0\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "DebuggerTools::ConsoleLog"
+                  },
+                  "parameters": [
+                    "\"You did not logged in - \" + VariableString(loginResponseError)",
+                    "",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "loginResponseError",
+                    "=",
+                    "\"0\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
             }
           ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         }
       ],
       "layers": [
