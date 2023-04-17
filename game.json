@@ -2273,6 +2273,22 @@
         "name": "NewSprite4",
         "smoothed": false,
         "userAdded": true
+      },
+      {
+        "file": "assets/8BitOperatorPlus8Regular_Edited.fnt",
+        "kind": "bitmapFont",
+        "metadata": "",
+        "name": "assets\\8BitOperatorPlus8Regular_Edited.fnt",
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/8BitOperatorPlus8Regular_Edited.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\8BitOperatorPlus8Regular_Edited.png",
+        "smoothed": false,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -2310,8 +2326,7 @@
         "r": 0
       },
       "absoluteCoordinates": false,
-      "clearBetweenFrames": true,
-      "antialiasing": "none"
+      "clearBetweenFrames": true
     },
     {
       "assetStoreId": "",
@@ -2388,6 +2403,11 @@
       "name": "LoginRequestError",
       "type": "string",
       "value": ""
+    },
+    {
+      "name": "CurrentEnemyID",
+      "type": "string",
+      "value": ""
     }
   ],
   "layouts": [
@@ -2411,7 +2431,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.2,
         "snap": false,
-        "zoomFactor": 2.4484010373203153,
+        "zoomFactor": 3.895160531931954,
         "windowMask": false
       },
       "objectsGroups": [
@@ -5842,7 +5862,14 @@
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "folded": true,
+              "name": "EnemyID",
+              "type": "string",
+              "value": "08630cd3372c40c7a319949aac06a0cb"
+            }
+          ],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -8082,26 +8109,6 @@
                         "Player",
                         "w"
                       ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "a"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "d"
-                      ]
                     }
                   ],
                   "actions": [
@@ -8121,6 +8128,58 @@
                       "parameters": [
                         "Player",
                         "\"Up\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "Player",
+                            "d"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateRightKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "Player",
+                            "a"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateLeftKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        }
                       ]
                     }
                   ]
@@ -8157,6 +8216,58 @@
                         "\"Down\""
                       ]
                     }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "Player",
+                            "d"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateRightKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "KeyPressed"
+                          },
+                          "parameters": [
+                            "Player",
+                            "a"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::SimulateLeftKey"
+                          },
+                          "parameters": [
+                            "Player",
+                            "TopDownMovement"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 },
                 {
@@ -8169,6 +8280,26 @@
                       "parameters": [
                         "Player",
                         "d"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "Player",
+                        "w"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "Player",
+                        "s"
                       ]
                     }
                   ],
@@ -8191,42 +8322,6 @@
                         "\"Right\""
                       ]
                     }
-                  ],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "KeyPressed"
-                          },
-                          "parameters": [
-                            "w",
-                            "w"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "TopDownMovementBehavior::SimulateUpKey"
-                          },
-                          "parameters": [
-                            "Player",
-                            "TopDownMovement"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "Player",
-                            "\"Up\""
-                          ]
-                        }
-                      ]
-                    }
                   ]
                 },
                 {
@@ -8239,6 +8334,26 @@
                       "parameters": [
                         "Player",
                         "a"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "Player",
+                        "w"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "Player",
+                        "s"
                       ]
                     }
                   ],
@@ -8594,6 +8709,16 @@
                           "parameters": [
                             "",
                             "\"Battle\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarGlobalTxt"
+                          },
+                          "parameters": [
+                            "CurrentEnemyID",
+                            "=",
+                            "NPC.VariableString(EnemyID)"
                           ]
                         }
                       ]
@@ -9358,7 +9483,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.2,
         "snap": true,
-        "zoomFactor": 0.8899892681114087,
+        "zoomFactor": 0.8328727529780943,
         "windowMask": true
       },
       "objectsGroups": [
@@ -9391,25 +9516,22 @@
           "children": []
         },
         {
-          "name": "userAnswer",
+          "folded": true,
+          "name": "TaskJSON",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "folded": true,
+          "name": "Task",
           "type": "structure",
-          "children": [
-            {
-              "name": "code",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "name": "enemyId",
-              "type": "number",
-              "value": 0
-            },
-            {
-              "name": "userId",
-              "type": "number",
-              "value": 0
-            }
-          ]
+          "children": []
+        },
+        {
+          "folded": true,
+          "name": "EnemyID",
+          "type": "string",
+          "value": "08630cd3372c40c7a319949aac06a0cb"
         }
       ],
       "instances": [
@@ -9643,7 +9765,7 @@
           "customSize": true,
           "height": 442,
           "layer": "Console",
-          "name": "NewBBText",
+          "name": "ErrorDescription",
           "persistentUuid": "d44cced0-c0cb-47a4-8380-2f200410d7b6",
           "width": 948,
           "x": 0,
@@ -10027,6 +10149,26 @@
         },
         {
           "assetStoreId": "",
+          "name": "Title",
+          "tags": "",
+          "type": "BitmapText::BitmapTextObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "Title",
+            "opacity": 255,
+            "scale": 1,
+            "fontSize": 20,
+            "tint": "255;255;255",
+            "bitmapFontResourceName": "assets\\8BitOperatorPlus8Regular_Edited.fnt",
+            "textureAtlasResourceName": "assets\\8BitOperatorPlus8Regular_Edited.png",
+            "align": "right",
+            "wordWrap": true
+          }
+        },
+        {
+          "assetStoreId": "",
           "name": "Dialogue",
           "tags": "",
           "type": "BitmapText::BitmapTextObject",
@@ -10042,7 +10184,7 @@
             }
           ],
           "content": {
-            "text": "The battle begins.",
+            "text": "",
             "opacity": 255,
             "scale": 1,
             "fontSize": 20,
@@ -10643,7 +10785,7 @@
         },
         {
           "assetStoreId": "",
-          "name": "NewBBText",
+          "name": "ErrorDescription",
           "tags": "",
           "type": "BBText::BBText",
           "variables": [],
@@ -10701,6 +10843,29 @@
           "actions": [
             {
               "type": {
+                "await": true,
+                "value": "SendAsyncRequest"
+              },
+              "parameters": [
+                "\"http://195.49.212.3:8000/api/v1/battle/get-problem/\"",
+                "\"{\\\"enemy_id\\\": \\\"\" + GlobalVariableString(CurrentEnemyID) + \"\\\"}\"",
+                "\"POST\"",
+                "\"application/json\"",
+                "TaskJSON",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "JSONToVariableStructure"
+              },
+              "parameters": [
+                "VariableString(TaskJSON)",
+                "Task"
+              ]
+            },
+            {
+              "type": {
                 "value": "FlashTransitionPainter::FlashTransitionPainter::PaintEffect"
               },
               "parameters": [
@@ -10712,6 +10877,16 @@
                 "\"Backward\"",
                 "255",
                 ""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "Dialogue",
+                "=",
+                "VariableString(Task.description)"
               ]
             },
             {
@@ -11040,10 +11215,10 @@
                         "value": "SendAsyncRequest"
                       },
                       "parameters": [
-                        "\"http://127.0.0.1:12347/rightAnswer\"",
-                        "ToString(Variable(userAnswer))",
+                        "\"http://195.49.212.3:8000/api/v1/battle/attack/\"",
+                        "\"{\\\"problem_id\\\": \\\"\" + VariableString(Task.id) + \"\\\", \\\"code\\\": \\\"\" + CodeInput.Text() + \"\\\", \\\"language\\\": \\\"python\\\"}\"",
                         "\"POST\"",
-                        "",
+                        "\"application/json\"",
                         "answerJSON",
                         ""
                       ]
@@ -11059,12 +11234,47 @@
                     },
                     {
                       "type": {
+                        "value": "DebuggerTools::ConsoleLog"
+                      },
+                      "parameters": [
+                        "VariableString(Task.id)",
+                        "",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "ModVarSceneTxt"
                       },
                       "parameters": [
                         "State",
                         "=",
                         "\"PlayPlayerAttack\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "BBText::SetBBText"
+                          },
+                          "parameters": [
+                            "ErrorDescription",
+                            "=",
+                            "VariableString(answer.description)"
+                          ]
+                        }
                       ]
                     }
                   ]
@@ -11083,6 +11293,16 @@
                     }
                   ],
                   "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarGlobalTxt"
+                      },
+                      "parameters": [
+                        "CurrentEnemyID",
+                        "=",
+                        "\"\""
+                      ]
+                    },
                     {
                       "type": {
                         "value": "Scene"
@@ -12228,7 +12448,7 @@
                 "value": "SendAsyncRequest"
               },
               "parameters": [
-                "\"http://127.0.0.1:8000/api/v1/auth/create-token/\"",
+                "\"http://195.49.212.3:8000/api/v1/auth/create-token/\"",
                 "\"{\\\"username\\\": \\\"\" + email_input.Text() + \"\\\", \\\"password\\\": \\\"\" + password_input.Text() + \"\\\"}\"",
                 "\"POST\"",
                 "\"application/json\"",
