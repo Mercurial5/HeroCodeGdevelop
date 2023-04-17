@@ -2273,6 +2273,16 @@
         "name": "NewSprite4",
         "smoothed": false,
         "userAdded": true
+      },
+      {
+        "file": "brefin-neutor-suzume-no-tojikari-title-track-mp3.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "brefin-neutor-suzume-no-tojikari-title-track-mp3.mp3",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -2376,7 +2386,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.2,
         "snap": false,
-        "zoomFactor": 1.440235904306074,
+        "zoomFactor": 0.5690468466185579,
         "windowMask": false
       },
       "objectsGroups": [
@@ -6307,7 +6317,20 @@
           "name": "Dialogue",
           "tags": "",
           "type": "BitmapText::BitmapTextObject",
-          "variables": [],
+          "variables": [
+            {
+              "folded": true,
+              "name": "EnemyDialogue",
+              "type": "string",
+              "value": "Do you want to battle?\nI have the best\ncreatures in town!"
+            },
+            {
+              "folded": true,
+              "name": "IntroductionDialogue",
+              "type": "string",
+              "value": "In a futuristic world, the city is under constant threat from dangerous mobs that roam the streets, causing destruction and chaos wherever they go. You are a talented coder, tasked with creating a program that can defeat these mobs and save the city."
+            }
+          ],
           "effects": [],
           "behaviors": [
             {
@@ -7803,6 +7826,21 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "NewVideo",
+          "tags": "",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": false,
+            "volume": 100,
+            "videoResource": ""
+          }
         }
       ],
       "events": [
@@ -7894,6 +7932,18 @@
                 "Pause",
                 "=",
                 "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySound"
+              },
+              "parameters": [
+                "",
+                "brefin-neutor-suzume-no-tojikari-title-track-mp3.mp3",
+                "",
+                "30",
+                ""
               ]
             }
           ],
