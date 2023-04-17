@@ -9389,6 +9389,27 @@
           "name": "answer",
           "type": "structure",
           "children": []
+        },
+        {
+          "name": "userAnswer",
+          "type": "structure",
+          "children": [
+            {
+              "name": "code",
+              "type": "string",
+              "value": ""
+            },
+            {
+              "name": "enemyId",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "name": "userId",
+              "type": "number",
+              "value": 0
+            }
+          ]
         }
       ],
       "instances": [
@@ -11005,16 +11026,35 @@
                   "actions": [
                     {
                       "type": {
+                        "value": "ModVarSceneTxt"
+                      },
+                      "parameters": [
+                        "userAnswer.code",
+                        "=",
+                        "CodeInput.Text()"
+                      ]
+                    },
+                    {
+                      "type": {
                         "await": true,
                         "value": "SendAsyncRequest"
                       },
                       "parameters": [
                         "\"http://127.0.0.1:12347/rightAnswer\"",
-                        "\"\"",
+                        "ToString(Variable(userAnswer))",
                         "\"POST\"",
                         "",
                         "answerJSON",
                         ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "JSONToVariableStructure"
+                      },
+                      "parameters": [
+                        "VariableString(answerJSON)",
+                        "answer"
                       ]
                     },
                     {
@@ -11025,15 +11065,6 @@
                         "State",
                         "=",
                         "\"PlayPlayerAttack\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "JSONToVariableStructure"
-                      },
-                      "parameters": [
-                        "VariableString(answerJSON)",
-                        "answer"
                       ]
                     }
                   ]
@@ -11260,6 +11291,16 @@
                             "=",
                             "\"WaitPlayerChoice\""
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "userAnswer.code",
+                            "=",
+                            "\"\""
+                          ]
                         }
                       ]
                     }
@@ -11299,6 +11340,16 @@
                             "State",
                             "=",
                             "\"WaitEnemyChoice\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "userAnswer.code",
+                            "=",
+                            "\"\""
                           ]
                         }
                       ]
