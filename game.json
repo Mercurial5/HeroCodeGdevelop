@@ -3900,6 +3900,15 @@
         "name": "NewSprite10",
         "smoothed": false,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/NewSprite11.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite11",
+        "smoothed": false,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -11317,7 +11326,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.2,
         "snap": true,
-        "zoomFactor": 0.8328727529780943,
+        "zoomFactor": 0.8609574971233531,
         "windowMask": true
       },
       "objectsGroups": [
@@ -11665,6 +11674,21 @@
           "x": 768,
           "y": 0,
           "zOrder": 7,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "Code",
+          "name": "Notify",
+          "persistentUuid": "88f1c768-81fb-481d-a0c1-af514716f5b7",
+          "width": 0,
+          "x": 915,
+          "y": 128,
+          "zOrder": 23,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -12659,6 +12683,48 @@
             "readOnly": false,
             "disabled": false
           }
+        },
+        {
+          "assetStoreId": "",
+          "name": "Notify",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "NewSprite",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "NewSprite11",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
@@ -12914,6 +12980,14 @@
                         "",
                         "\"Code\""
                       ]
+                    },
+                    {
+                      "type": {
+                        "value": "Cache"
+                      },
+                      "parameters": [
+                        "Notify"
+                      ]
                     }
                   ]
                 },
@@ -12947,6 +13021,14 @@
                       "parameters": [
                         "",
                         "\"Console\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Cache"
+                      },
+                      "parameters": [
+                        "Notify"
                       ]
                     }
                   ]
@@ -13049,12 +13131,20 @@
                     },
                     {
                       "type": {
-                        "value": "ModVarSceneTxt"
+                        "value": "JSONToVariableStructure"
                       },
                       "parameters": [
-                        "State",
-                        "=",
-                        "\"PlayPlayerAttack\""
+                        "VariableString(answerJSON)",
+                        "answer"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Montre"
+                      },
+                      "parameters": [
+                        "Notify",
+                        ""
                       ]
                     },
                     {
@@ -13072,8 +13162,9 @@
                         "value": "ModVarSceneTxt"
                       },
                       "parameters": [
-                        "VariableString(answerJSON)",
-                        "answer"
+                        "State",
+                        "=",
+                        "\"PlayPlayerAttack\""
                       ]
                     }
                   ],
@@ -13674,6 +13765,31 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Always"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "Dialogue",
+                "=",
+                "VariableString(Task.description)"
+              ]
+            }
+          ]
         }
       ],
       "layers": [
@@ -13750,7 +13866,7 @@
           "followBaseLayerCamera": false,
           "isLightingLayer": false,
           "name": "Console",
-          "visibility": true,
+          "visibility": false,
           "cameras": [],
           "effects": []
         },
