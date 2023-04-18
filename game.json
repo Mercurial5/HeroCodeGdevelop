@@ -4043,7 +4043,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.2,
         "snap": false,
-        "zoomFactor": 1.2201643882660662,
+        "zoomFactor": 1.2613087341905507,
         "windowMask": false
       },
       "objectsGroups": [
@@ -10378,7 +10378,7 @@
                         "",
                         "Talk.wav",
                         "",
-                        "50",
+                        "1",
                         "1"
                       ]
                     }
@@ -10569,7 +10569,7 @@
                         "",
                         "HoverSound.wav",
                         "",
-                        "20",
+                        "1",
                         "RandomFloatInRange(0.8,0.9)"
                       ]
                     }
