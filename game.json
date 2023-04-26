@@ -4018,7 +4018,8 @@
         "r": 0
       },
       "absoluteCoordinates": false,
-      "clearBetweenFrames": true
+      "clearBetweenFrames": true,
+      "antialiasing": "none"
     },
     {
       "assetStoreId": "",
@@ -4101,6 +4102,12 @@
       "name": "LoggedIn",
       "type": "boolean",
       "value": false
+    },
+    {
+      "folded": true,
+      "name": "HOST",
+      "type": "string",
+      "value": "https://herocode.bio"
     }
   ],
   "layouts": [
@@ -13155,7 +13162,7 @@
                 "value": "SendAsyncRequest"
               },
               "parameters": [
-                "\"http://45.137.67.46:8000/api/v1/battle/get-problem/\"",
+                "GlobalVariableString(HOST) + \"/api/v1/battle/get-problem/\"",
                 "\"{\\\"enemy_id\\\": \\\"\" + GlobalVariableString(CurrentEnemyID) + \"\\\"}\"",
                 "\"POST\"",
                 "\"application/json\"",
@@ -13681,7 +13688,7 @@
                         "value": "SendAsyncRequest"
                       },
                       "parameters": [
-                        "\"http://45.137.67.46:8000/api/v1/battle/attack/\"",
+                        "GlobalVariableString(HOST) + \"/api/v1/battle/attack/\"",
                         "\"{\\\"problem_id\\\": \\\"\" + VariableString(Task.id) + \"\\\", \\\"code\\\": \\\"\" + CodeInput.Text() + \"\\\", \\\"language\\\": \\\"python\\\"}\"",
                         "\"POST\"",
                         "\"application/json\"",
@@ -14983,7 +14990,7 @@
                 "value": "SendAsyncRequest"
               },
               "parameters": [
-                "\"http://45.137.67.46:8000/api/v1/auth/create-token/\"",
+                "GlobalVariableString(HOST) + \"/api/v1/auth/create-token/\"",
                 "\"{\\\"username\\\": \\\"\" + email_input.Text() + \"\\\", \\\"password\\\": \\\"\" + password_input.Text() + \"\\\"}\"",
                 "\"POST\"",
                 "\"application/json\"",
