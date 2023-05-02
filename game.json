@@ -11619,6 +11619,12 @@
           "name": "EnemyID",
           "type": "string",
           "value": "08630cd3372c40c7a319949aac06a0cb"
+        },
+        {
+          "folded": true,
+          "name": "ProccessedCodeInput",
+          "type": "string",
+          "value": ""
         }
       ],
       "instances": [
@@ -13839,96 +13845,117 @@
                       ]
                     }
                   ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Cache"
-                      },
-                      "parameters": [
-                        "CodeInput"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ShowLayer"
-                      },
-                      "parameters": [
-                        "Loading",
-                        "\"Loading\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "await": true,
-                        "value": "SendAsyncRequest"
-                      },
-                      "parameters": [
-                        "GlobalVariableString(HOST) + \"/api/v1/battle/attack/\"",
-                        "\"{\\\"problem_id\\\": \\\"\" + VariableString(Task.id) + \"\\\", \\\"code\\\": \\\"\" + CodeInput.Text() + \"\\\", \\\"language\\\": \\\"python\\\"}\"",
-                        "\"POST\"",
-                        "\"application/json\"",
-                        "answerJSON",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "JSONToVariableStructure"
-                      },
-                      "parameters": [
-                        "VariableString(answerJSON)",
-                        "answer"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "HideLayer"
-                      },
-                      "parameters": [
-                        "Loading",
-                        "\"Loading\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Montre"
-                      },
-                      "parameters": [
-                        "CodeInput",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Montre"
-                      },
-                      "parameters": [
-                        "Notify",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "DebuggerTools::ConsoleLog"
-                      },
-                      "parameters": [
-                        "VariableString(Task.id)",
-                        "",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ModVarSceneTxt"
-                      },
-                      "parameters": [
-                        "State",
-                        "=",
-                        "\"PlayPlayerAttack\""
-                      ]
-                    }
-                  ],
+                  "actions": [],
                   "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::JsCode",
+                      "inlineCode": [
+                        "console.log('yo');\r",
+                        "let input = objects[0]\r",
+                        "let text = input.getString();\r",
+                        "\r",
+                        "console.log(text);\r",
+                        "console.log(JSON.stringify(text));\r",
+                        "\r",
+                        "runtimeScene.getVariables().get('ProccessedCodeInput').setString(JSON.stringify(text));"
+                      ],
+                      "parameterObjects": "CodeInput",
+                      "useStrict": true,
+                      "eventsSheetExpanded": false
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Cache"
+                          },
+                          "parameters": [
+                            "CodeInput"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ShowLayer"
+                          },
+                          "parameters": [
+                            "Loading",
+                            "\"Loading\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "await": true,
+                            "value": "SendAsyncRequest"
+                          },
+                          "parameters": [
+                            "GlobalVariableString(HOST) + \"/api/v1/battle/attack/\"",
+                            "\"{\\\"problem_id\\\": \\\"\" + VariableString(Task.id) + \"\\\", \\\"code\\\": \" + VariableString(ProccessedCodeInput) + \", \\\"language\\\": \\\"python\\\"}\"",
+                            "\"POST\"",
+                            "\"application/json\"",
+                            "answerJSON",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "JSONToVariableStructure"
+                          },
+                          "parameters": [
+                            "VariableString(answerJSON)",
+                            "answer"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "HideLayer"
+                          },
+                          "parameters": [
+                            "Loading",
+                            "\"Loading\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Montre"
+                          },
+                          "parameters": [
+                            "CodeInput",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Montre"
+                          },
+                          "parameters": [
+                            "Notify",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "State",
+                            "=",
+                            "\"PlayPlayerAttack\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "DebuggerTools::ConsoleLog"
+                          },
+                          "parameters": [
+                            "VariableString(Task.id)",
+                            "",
+                            ""
+                          ]
+                        }
+                      ]
+                    },
                     {
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [
@@ -14550,21 +14577,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": [
-            "// gdjs.evtTools.runtimeScene.getObjects(\"CodeInput\")[0].addEffect('keydown', function(event) {",
-            "//     event.preventDefault();",
-            "//     var start = this.selectionStart;",
-            "//     var end = this.selectionEnd;",
-            "//     this.value = this.value.substring(0, start) + \"\\t\" + this.value.substring(end);",
-            "//     this.selectionStart = this.selectionEnd =  start + 1;",
-            "// });"
-          ],
-          "parameterObjects": "",
-          "useStrict": true,
-          "eventsSheetExpanded": false
         }
       ],
       "layers": [
